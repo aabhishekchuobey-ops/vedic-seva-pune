@@ -1,0 +1,623 @@
+// Version: 4.0.0
+type AccessControlState__836714403 =
+  {
+    var adminAssigned : Bool;
+    userRoles : Map__246123559<Principal, UserRole__686137147>
+  };
+type BilingualText__241618445 = {en : Text; hi : Text};
+type BilingualText__320738852 = {en : Text; hi : Text};
+type BilingualText__359719206 = BilingualText__241618445;
+type BilingualText__463847650 = {en : Text; hi : Text};
+type BlogPost__667824710 =
+  {
+    content : BilingualText__359719206;
+    createdAt : Timestamp__921320745;
+    excerpt : BilingualText__359719206;
+    id : Nat;
+    image : ?ExternalBlob__675229786;
+    published : Bool;
+    slug : Text;
+    title : BilingualText__359719206
+  };
+type BlogPost__913293089 =
+  {
+    content : BilingualText__320738852;
+    createdAt : Nat;
+    excerpt : BilingualText__320738852;
+    id : Nat;
+    image : ?ExternalBlob__675229786;
+    published : Bool;
+    slug : Text;
+    title : BilingualText__320738852
+  };
+type BookingCategory__1044934346 = {#booking; #donation};
+type BookingCategory__816209692 = {#booking; #donation};
+type Booking__250803038 =
+  {
+    address : Text;
+    createdAt : Nat;
+    email : ?Text;
+    id : Nat;
+    languagePreference : LanguagePreference__147177733;
+    name : Text;
+    phone : Text;
+    preferredDate : Text;
+    preferredTime : Text;
+    serviceType : Text;
+    specialNotes : Text
+  };
+type Booking__966688806 =
+  {
+    address : Text;
+    advanceAmount : ?Nat;
+    bookingCategory : ?BookingCategory__816209692;
+    createdAt : Timestamp__921320745;
+    donorMessage : ?BilingualText__359719206;
+    email : ?Text;
+    id : Nat;
+    languagePreference : LanguagePreference__931017153;
+    name : Text;
+    paymentReferenceId : ?Text;
+    paymentStatus : ?PaymentStatus__638429490;
+    phone : Text;
+    preferredDate : Text;
+    preferredTime : Text;
+    serviceType : Text;
+    specialNotes : Text;
+    upiVPA : ?Text
+  };
+type ContactSubmission__671591484 =
+  {
+    createdAt : Timestamp__921320745;
+    id : Nat;
+    message : Text;
+    name : Text;
+    phone : Text
+  };
+type ContactSubmission__993506262 =
+  {createdAt : Nat; id : Nat; message : Text; name : Text; phone : Text};
+type Data__552063367<K, V> = {var count : Nat__93962160; kvs : [var ?(K, V)]};
+type ExternalBlob__675229786 = Blob;
+type FAQ__280227681 =
+  {
+    answer : BilingualText__359719206;
+    category : Text;
+    displayOrder : Nat;
+    id : Nat;
+    question : BilingualText__359719206
+  };
+type FAQ__469519336 =
+  {
+    answer : BilingualText__320738852;
+    category : Text;
+    displayOrder : Nat;
+    id : Nat;
+    question : BilingualText__320738852
+  };
+type GalleryItem__33002067 =
+  {
+    category : Text;
+    createdAt : Timestamp__921320745;
+    id : Nat;
+    image : ExternalBlob__675229786;
+    title : BilingualText__359719206
+  };
+type GalleryItem__583264832 =
+  {
+    category : Text;
+    createdAt : Nat;
+    id : Nat;
+    image : ExternalBlob__675229786;
+    title : BilingualText__320738852
+  };
+type IdCounters__662182104 =
+  {
+    var nextBlogPostId : Nat;
+    var nextBookingId : Nat;
+    var nextContactSubmissionId : Nat;
+    var nextFAQId : Nat;
+    var nextGalleryItemId : Nat;
+    var nextPackageId : Nat;
+    var nextReviewId : Nat;
+    var nextServiceAreaId : Nat;
+    var nextServiceId : Nat
+  };
+type Int__616954475 = Int;
+type Int__849411254 = Int__616954475;
+type Internal__455405067<K, V> =
+  {children : [var ?Node__279997185<K, V>]; data : Data__552063367<K, V>};
+type LanguagePreference__1039889689 = {#bilingual; #english; #hindi};
+type LanguagePreference__147177733 = {#bilingual; #english; #hindi};
+type LanguagePreference__292246128 = {#bilingual; #english; #hindi};
+type LanguagePreference__931017153 = LanguagePreference__292246128;
+type Leaf__114713147<K, V> = {data : Data__552063367<K, V>};
+type List__716101829<T> =
+  {
+    var blockIndex : Nat__93962160;
+    var blocks : [var [var ?T]];
+    var elementIndex : Nat__93962160
+  };
+type List__852723865<T> = List__716101829<T>;
+type Map__190625089<K, V> = Map__719753394<K, V>;
+type Map__246123559<K, V> = Map__190625089<K, V>;
+type Map__719753394<K, V> =
+  {var root : Node__279997185<K, V>; var size : Nat__93962160};
+type Nat__920180692 = Nat;
+type Nat__93962160 = Nat__920180692;
+type NewActor__3604604 =
+  {
+    accessControlState : AccessControlState__836714403;
+    blogPosts : List__852723865<BlogPost__913293089>;
+    bookings : List__852723865<Booking__250803038>;
+    contactSubmissions : List__852723865<ContactSubmission__993506262>;
+    faqs : List__852723865<FAQ__469519336>;
+    gallery : List__852723865<GalleryItem__583264832>;
+    idCounters : IdCounters__662182104;
+    packages : List__852723865<Package__1064089411>;
+    reviews : List__852723865<Review__675159815>;
+    serviceAreas : List__852723865<ServiceArea__762465487>;
+    services : List__852723865<Service__1055287827>;
+    siteConfig : ?SiteConfig__615394967
+  };
+type NewActor__662224028 =
+  {
+    accessControlState : AccessControlState__836714403;
+    blogPosts : List__852723865<NewBlogPost__312438334>;
+    bookings : List__852723865<NewBooking__280415188>;
+    contactSubmissions : List__852723865<NewContactSubmission__450824070>;
+    faqs : List__852723865<NewFAQ__255099124>;
+    gallery : List__852723865<NewGalleryItem__583426879>;
+    idCounters : NewIdCounters__1480430;
+    packages : List__852723865<NewPackage__480770835>;
+    reviews : List__852723865<NewReview__961042865>;
+    serviceAreas : List__852723865<NewServiceArea__517206859>;
+    services : List__852723865<NewService__1031013905>;
+    siteConfig : {var value : ?NewSiteConfig__508924970}
+  };
+type NewBlogPost__312438334 = OldBlogPost__175211753;
+type NewBooking__280415188 =
+  {
+    address : Text;
+    advanceAmount : ?Nat;
+    bookingCategory : ?BookingCategory__1044934346;
+    createdAt : Nat;
+    donorMessage : ?BilingualText__463847650;
+    email : ?Text;
+    id : Nat;
+    languagePreference : LanguagePreference__1039889689;
+    name : Text;
+    paymentReferenceId : ?Text;
+    paymentStatus : ?PaymentStatus__419009431;
+    phone : Text;
+    preferredDate : Text;
+    preferredTime : Text;
+    serviceType : Text;
+    specialNotes : Text;
+    upiVPA : ?Text
+  };
+type NewContactSubmission__450824070 = OldContactSubmission__678170824;
+type NewFAQ__255099124 = OldFAQ__1063142765;
+type NewGalleryItem__583426879 = OldGalleryItem__1021456148;
+type NewIdCounters__1480430 = OldIdCounters__799191534;
+type NewPackage__480770835 = OldPackage__347812549;
+type NewReview__961042865 = OldReview__839499423;
+type NewServiceArea__517206859 = OldServiceArea__967490497;
+type NewService__1031013905 = OldService__390702043;
+type NewSiteConfig__508924970 =
+  {
+    contactPhone : Text;
+    panditName : BilingualText__463847650;
+    sankalp : BilingualText__463847650;
+    socialLinks : [NewSocialLink__85772615];
+    tagline : BilingualText__463847650;
+    upiNote : ?Text;
+    upiPayeeName : ?Text;
+    upiVPA : ?Text
+  };
+type NewSocialLink__85772615 = OldSocialLink__174148994;
+type Node__279997185<K, V> =
+  {#internal : Internal__455405067<K, V>; #leaf : Leaf__114713147<K, V>};
+type NotificationType__309028197 =
+  {
+    #follow;
+    #like : Nat;
+    #mention : Nat;
+    #quote : Nat;
+    #reply : Nat;
+    #repost : Nat
+  };
+type Notification__73044690 =
+  {
+    actorPrincipal : Principal;
+    actorUsername : Text;
+    createdAt : Time__837879871;
+    id : Nat;
+    isRead : Bool;
+    notificationType : NotificationType__309028197
+  };
+type OldActor__1033607124 =
+  {
+    accessControlState : AccessControlState__836714403;
+    blogPosts : List__852723865<OldBlogPost__175211753>;
+    bookings : List__852723865<OldBooking__265249066>;
+    contactSubmissions : List__852723865<OldContactSubmission__678170824>;
+    faqs : List__852723865<OldFAQ__1063142765>;
+    gallery : List__852723865<OldGalleryItem__1021456148>;
+    idCounters : OldIdCounters__799191534;
+    packages : List__852723865<OldPackage__347812549>;
+    reviews : List__852723865<OldReview__839499423>;
+    serviceAreas : List__852723865<OldServiceArea__967490497>;
+    services : List__852723865<OldService__390702043>;
+    siteConfig : ?OldSiteConfig__701052597
+  };
+type OldActor__985858149 =
+  {
+    accessControlState : AccessControlState__836714403;
+    blocks : Map__246123559<Principal, Map__246123559<Principal, Bool>>;
+    followers : Map__246123559<Principal, Map__246123559<Principal, Bool>>;
+    following : Map__246123559<Principal, Map__246123559<Principal, Bool>>;
+    hashtagIndex : Map__246123559<Text, Map__246123559<Nat, Bool>>;
+    mutes : Map__246123559<Principal, Map__246123559<Principal, Bool>>;
+    var nextNotificationId : Nat;
+    var nextPostId : Nat;
+    postLikes : Map__246123559<Nat, Map__246123559<Principal, Bool>>;
+    postReplies : Map__246123559<Nat, Map__246123559<Nat, Bool>>;
+    postReposts : Map__246123559<Nat, Map__246123559<Principal, Bool>>;
+    posts : Map__246123559<Nat, OldPost__85198756>;
+    repostIndex : Map__246123559<Principal, Map__246123559<Nat, Nat>>;
+    userNotifications :
+      Map__246123559<Principal,
+                      Map__246123559<Nat, OldNotification__1028091867>>;
+    userPostCounts : Map__246123559<Principal, Nat>;
+    userProfiles : Map__246123559<Principal, OldUserProfile__316967486>;
+    usernameToUser : Map__246123559<Text, Principal>
+  };
+type OldBlogPost__175211753 =
+  {
+    content : BilingualText__463847650;
+    createdAt : Nat;
+    excerpt : BilingualText__463847650;
+    id : Nat;
+    image : ?ExternalBlob__675229786;
+    published : Bool;
+    slug : Text;
+    title : BilingualText__463847650
+  };
+type OldBooking__265249066 =
+  {
+    address : Text;
+    createdAt : Nat;
+    email : ?Text;
+    id : Nat;
+    languagePreference : LanguagePreference__1039889689;
+    name : Text;
+    phone : Text;
+    preferredDate : Text;
+    preferredTime : Text;
+    serviceType : Text;
+    specialNotes : Text
+  };
+type OldContactSubmission__678170824 =
+  {createdAt : Nat; id : Nat; message : Text; name : Text; phone : Text};
+type OldFAQ__1063142765 =
+  {
+    answer : BilingualText__463847650;
+    category : Text;
+    displayOrder : Nat;
+    id : Nat;
+    question : BilingualText__463847650
+  };
+type OldGalleryItem__1021456148 =
+  {
+    category : Text;
+    createdAt : Nat;
+    id : Nat;
+    image : ExternalBlob__675229786;
+    title : BilingualText__463847650
+  };
+type OldIdCounters__799191534 =
+  {
+    var nextBlogPostId : Nat;
+    var nextBookingId : Nat;
+    var nextContactSubmissionId : Nat;
+    var nextFAQId : Nat;
+    var nextGalleryItemId : Nat;
+    var nextPackageId : Nat;
+    var nextReviewId : Nat;
+    var nextServiceAreaId : Nat;
+    var nextServiceId : Nat
+  };
+type OldNotificationType__647253236 =
+  {
+    #follow;
+    #like : Nat;
+    #mention : Nat;
+    #quote : Nat;
+    #reply : Nat;
+    #repost : Nat
+  };
+type OldNotification__1028091867 =
+  {
+    actorPrincipal : Principal;
+    actorUsername : Text;
+    createdAt : Time__837879871;
+    id : Nat;
+    isRead : Bool;
+    notificationType : OldNotificationType__647253236
+  };
+type OldPackage__347812549 =
+  {
+    description : BilingualText__463847650;
+    displayOrder : Nat;
+    id : Nat;
+    includedItems : [BilingualText__463847650];
+    name : BilingualText__463847650;
+    priceMaxRupees : Nat;
+    priceMinRupees : Nat
+  };
+type OldPostType__17053107 =
+  {#original; #quote : Nat; #reply : Nat; #repost : Nat};
+type OldPost__85198756 =
+  {
+    author : Principal;
+    createdAt : Time__837879871;
+    editedAt : ?Time__837879871;
+    id : Nat;
+    mediaHash : ?ExternalBlob__675229786;
+    mediaType : ?Text;
+    postType : OldPostType__17053107;
+    text : Text
+  };
+type OldReview__839499423 =
+  {
+    createdAt : Nat;
+    id : Nat;
+    rating : Nat;
+    reviewerName : Text;
+    testimonial : BilingualText__463847650
+  };
+type OldServiceArea__967490497 = {id : Nat; name : Text};
+type OldService__390702043 =
+  {
+    category : ServiceCategory__83951415;
+    description : BilingualText__463847650;
+    displayOrder : Nat;
+    id : Nat;
+    name : BilingualText__463847650
+  };
+type OldSiteConfig__701052597 =
+  {
+    contactPhone : Text;
+    panditName : BilingualText__463847650;
+    sankalp : BilingualText__463847650;
+    socialLinks : [OldSocialLink__174148994];
+    tagline : BilingualText__463847650
+  };
+type OldSocialLink__174148994 = {name : Text; url : Text};
+type OldUserProfile__316967486 =
+  {
+    bio : Text;
+    createdAt : Time__837879871;
+    displayName : Text;
+    headerImageHash : ?ExternalBlob__675229786;
+    profilePictureHash : ?ExternalBlob__675229786;
+    updatedAt : Time__837879871;
+    username : Text
+  };
+type Package__1064089411 =
+  {
+    description : BilingualText__320738852;
+    displayOrder : Nat;
+    id : Nat;
+    includedItems : [BilingualText__320738852];
+    name : BilingualText__320738852;
+    priceMaxRupees : Nat;
+    priceMinRupees : Nat
+  };
+type Package__431036211 =
+  {
+    description : BilingualText__359719206;
+    displayOrder : Nat;
+    id : Nat;
+    includedItems : [BilingualText__359719206];
+    name : BilingualText__359719206;
+    priceMaxRupees : Nat;
+    priceMinRupees : Nat
+  };
+type PaymentStatus__419009431 =
+  {#failed; #notApplicable; #pendingVerification; #verified};
+type PaymentStatus__638429490 =
+  {#failed; #notApplicable; #pendingVerification; #verified};
+type PostType__137568890 =
+  {#original; #quote : Nat; #reply : Nat; #repost : Nat};
+type Post__56459536 =
+  {
+    author : Principal;
+    createdAt : Time__837879871;
+    editedAt : ?Time__837879871;
+    id : Nat;
+    mediaHash : ?ExternalBlob__675229786;
+    mediaType : ?Text;
+    postType : PostType__137568890;
+    text : Text
+  };
+type Review__297149204 =
+  {
+    createdAt : Timestamp__921320745;
+    id : Nat;
+    rating : Nat;
+    reviewerName : Text;
+    testimonial : BilingualText__359719206
+  };
+type Review__675159815 =
+  {
+    createdAt : Nat;
+    id : Nat;
+    rating : Nat;
+    reviewerName : Text;
+    testimonial : BilingualText__320738852
+  };
+type ServiceArea__591755488 = {id : Nat; name : Text};
+type ServiceArea__762465487 = {id : Nat; name : Text};
+type ServiceCategory__141178864 = ServiceCategory__313329945;
+type ServiceCategory__313329945 =
+  {#grahaDoshShanti; #jeevanSamskar; #jyotishServices; #vedicPujaHavan};
+type ServiceCategory__820192402 =
+  {#grahaDoshShanti; #jeevanSamskar; #jyotishServices; #vedicPujaHavan};
+type ServiceCategory__83951415 =
+  {#grahaDoshShanti; #jeevanSamskar; #jyotishServices; #vedicPujaHavan};
+type Service__1055287827 =
+  {
+    category : ServiceCategory__820192402;
+    description : BilingualText__320738852;
+    displayOrder : Nat;
+    id : Nat;
+    name : BilingualText__320738852
+  };
+type Service__244223899 =
+  {
+    category : ServiceCategory__141178864;
+    description : BilingualText__359719206;
+    displayOrder : Nat;
+    id : Nat;
+    name : BilingualText__359719206
+  };
+type SiteConfig__615394967 =
+  {
+    contactPhone : Text;
+    panditName : BilingualText__320738852;
+    sankalp : BilingualText__320738852;
+    socialLinks : [SocialLink__754589814];
+    tagline : BilingualText__320738852
+  };
+type SiteConfig__926415555 =
+  {
+    contactPhone : Text;
+    panditName : BilingualText__359719206;
+    sankalp : BilingualText__359719206;
+    socialLinks : [SocialLink__71732978];
+    tagline : BilingualText__359719206;
+    upiNote : ?Text;
+    upiPayeeName : ?Text;
+    upiVPA : ?Text
+  };
+type SocialLink__71732978 = {name : Text; url : Text};
+type SocialLink__754589814 = {name : Text; url : Text};
+type Time__72294698 = Int__849411254;
+type Time__837879871 = Time__72294698;
+type Timestamp__301639476 = Nat;
+type Timestamp__921320745 = Timestamp__301639476;
+type UserProfile__248713505 =
+  {
+    bio : Text;
+    createdAt : Time__837879871;
+    displayName : Text;
+    headerImageHash : ?ExternalBlob__675229786;
+    profilePictureHash : ?ExternalBlob__675229786;
+    updatedAt : Time__837879871;
+    username : Text
+  };
+type UserRole__686137147 = {#admin; #guest; #user};
+{
+  "20250101_000000_Init" :
+    {} ->
+      {
+        accessControlState : AccessControlState__836714403;
+        blocks : Map__246123559<Principal, Map__246123559<Principal, Bool>>;
+        followers :
+          Map__246123559<Principal, Map__246123559<Principal, Bool>>;
+        following :
+          Map__246123559<Principal, Map__246123559<Principal, Bool>>;
+        hashtagIndex : Map__246123559<Text, Map__246123559<Nat, Bool>>;
+        mutes : Map__246123559<Principal, Map__246123559<Principal, Bool>>;
+        var nextNotificationId : Nat;
+        var nextPostId : Nat;
+        postLikes : Map__246123559<Nat, Map__246123559<Principal, Bool>>;
+        postReplies : Map__246123559<Nat, Map__246123559<Nat, Bool>>;
+        postReposts : Map__246123559<Nat, Map__246123559<Principal, Bool>>;
+        posts : Map__246123559<Nat, Post__56459536>;
+        repostIndex : Map__246123559<Principal, Map__246123559<Nat, Nat>>;
+        userNotifications :
+          Map__246123559<Principal,
+                          Map__246123559<Nat, Notification__73044690>>;
+        userPostCounts : Map__246123559<Principal, Nat>;
+        userProfiles : Map__246123559<Principal, UserProfile__248713505>;
+        usernameToUser : Map__246123559<Text, Principal>
+      };
+  "20260723_174336" : (_old : OldActor__985858149) -> NewActor__3604604;
+  "20260723_180807" : (old : OldActor__1033607124) -> NewActor__662224028
+}
+actor  {
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__246123559<Principal, UserRole__686137147>
+    };
+  stable blogPosts :
+    {
+      var blockIndex : Nat__93962160;
+      var blocks : [var [var ?BlogPost__667824710]];
+      var elementIndex : Nat__93962160
+    };
+  stable bookings :
+    {
+      var blockIndex : Nat__93962160;
+      var blocks : [var [var ?Booking__966688806]];
+      var elementIndex : Nat__93962160
+    };
+  stable contactSubmissions :
+    {
+      var blockIndex : Nat__93962160;
+      var blocks : [var [var ?ContactSubmission__671591484]];
+      var elementIndex : Nat__93962160
+    };
+  stable faqs :
+    {
+      var blockIndex : Nat__93962160;
+      var blocks : [var [var ?FAQ__280227681]];
+      var elementIndex : Nat__93962160
+    };
+  stable gallery :
+    {
+      var blockIndex : Nat__93962160;
+      var blocks : [var [var ?GalleryItem__33002067]];
+      var elementIndex : Nat__93962160
+    };
+  stable idCounters :
+    {
+      var nextBlogPostId : Nat;
+      var nextBookingId : Nat;
+      var nextContactSubmissionId : Nat;
+      var nextFAQId : Nat;
+      var nextGalleryItemId : Nat;
+      var nextPackageId : Nat;
+      var nextReviewId : Nat;
+      var nextServiceAreaId : Nat;
+      var nextServiceId : Nat
+    };
+  stable packages :
+    {
+      var blockIndex : Nat__93962160;
+      var blocks : [var [var ?Package__431036211]];
+      var elementIndex : Nat__93962160
+    };
+  stable reviews :
+    {
+      var blockIndex : Nat__93962160;
+      var blocks : [var [var ?Review__297149204]];
+      var elementIndex : Nat__93962160
+    };
+  stable serviceAreas :
+    {
+      var blockIndex : Nat__93962160;
+      var blocks : [var [var ?ServiceArea__591755488]];
+      var elementIndex : Nat__93962160
+    };
+  stable services :
+    {
+      var blockIndex : Nat__93962160;
+      var blocks : [var [var ?Service__244223899]];
+      var elementIndex : Nat__93962160
+    };
+  stable siteConfig : {var value : ?SiteConfig__926415555}
+};

@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+:root {
+  --background: 0.97 0.012 75;
+  --foreground: 0.18 0.03 35;
+  --card: 0.99 0.008 75;
+  --card-foreground: 0.18 0.03 35;
+  --popover: 0.99 0.008 75;
+  --popover-foreground: 0.18 0.03 35;
+  --primary: 0.42 0.14 28;
+  --primary-foreground: 0.97 0.012 75;
+  --secondary: 0.93 0.025 70;
+  --secondary-foreground: 0.25 0.04 35;
+  --muted: 0.94 0.02 70;
+  --muted-foreground: 0.48 0.025 40;
+  --accent: 0.74 0.16 65;
+  --accent-foreground: 0.22 0.05 45;
+  --destructive: 0.5 0.2 25;
+  --destructive-foreground: 0.97 0.012 25;
+  --success: 0.55 0.15 145;
+  --warning: 0.72 0.16 80;
+  --border: 0.88 0.025 65;
+  --input: 0.88 0.025 65;
+  --ring: 0.42 0.14 28;
+  --chart-1: 0.42 0.14 28;
+  --chart-2: 0.74 0.16 65;
+  --chart-3: 0.68 0.13 85;
+  --chart-4: 0.55 0.12 45;
+  --chart-5: 0.78 0.1 55;
+  --sidebar: 0.96 0.015 70;
+  --sidebar-foreground: 0.25 0.04 35;
+  --sidebar-primary: 0.42 0.14 28;
+  --sidebar-primary-foreground: 0.97 0.012 75;
+  --sidebar-accent: 0.93 0.025 70;
+  --sidebar-accent-foreground: 0.42 0.14 28;
+  --sidebar-border: 0.88 0.025 65;
+  --sidebar-ring: 0.42 0.14 28;
+  --font-sans: "General Sans", "Noto Sans Devanagari", system-ui, sans-serif;
+  --font-serif: "Fraunces", "Noto Serif Devanagari", Georgia, serif;
+  --font-mono: "Geist Mono", monospace;
+  --font-display: "Fraunces", "Noto Serif Devanagari", Georgia, serif;
+  --radius: 0.625rem;
+  --shadow-x: 0px;
+  --shadow-y: 2px;
+  --shadow-blur: 12px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0.04;
+  --shadow-color: 35 0.04 35;
+  --shadow-2xs: 0px 2px 12px 0px oklch(0.35 0.04 35 / 0.02);
+  --shadow-xs: 0px 2px 12px 0px oklch(0.35 0.04 35 / 0.02);
+  --shadow-sm: 0px 2px 12px 0px oklch(0.35 0.04 35 / 0.05), 0px 1px 2px -1px
+    oklch(0.35 0.04 35 / 0.05);
+  --shadow: 0px 2px 12px 0px oklch(0.35 0.04 35 / 0.05), 0px 1px 2px -1px
+    oklch(0.35 0.04 35 / 0.05);
+  --shadow-md: 0px 2px 12px 0px oklch(0.35 0.04 35 / 0.06), 0px 2px 4px -1px
+    oklch(0.35 0.04 35 / 0.06);
+  --shadow-lg: 0px 2px 12px 0px oklch(0.35 0.04 35 / 0.07), 0px 4px 6px -1px
+    oklch(0.35 0.04 35 / 0.07);
+  --shadow-xl: 0px 2px 12px 0px oklch(0.35 0.04 35 / 0.08), 0px 8px 10px -1px
+    oklch(0.35 0.04 35 / 0.08);
+  --shadow-2xl: 0px 2px 12px 0px oklch(0.35 0.04 35 / 0.12);
+  --tracking-normal: -0.015em;
+  --spacing: 0.25rem;
+  --landing: 0.95 0.018 65;
+  --gradient-primary: linear-gradient(
+    135deg,
+    oklch(0.74 0.16 65) 0%,
+    oklch(0.68 0.13 85) 100%
+  );
+  --gradient-subtle: linear-gradient(
+    180deg,
+    oklch(0.97 0.012 75) 0%,
+    oklch(0.94 0.02 70) 100%
+  );
+  --gradient-flame: linear-gradient(
+    135deg,
+    oklch(0.74 0.16 65) 0%,
+    oklch(0.55 0.12 45) 100%
+  );
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark {
+  --background: 0.14 0.018 30;
+  --foreground: 0.93 0.012 70;
+  --card: 0.18 0.022 30;
+  --card-foreground: 0.93 0.012 70;
+  --popover: 0.18 0.022 30;
+  --popover-foreground: 0.93 0.012 70;
+  --primary: 0.76 0.16 65;
+  --primary-foreground: 0.14 0.018 30;
+  --secondary: 0.24 0.03 35;
+  --secondary-foreground: 0.85 0.012 70;
+  --muted: 0.22 0.025 35;
+  --muted-foreground: 0.6 0.015 60;
+  --accent: 0.74 0.16 65;
+  --accent-foreground: 0.14 0.018 30;
+  --destructive: 0.55 0.2 25;
+  --destructive-foreground: 0.93 0.012 25;
+  --border: 0.3 0.025 35;
+  --input: 0.3 0.025 35;
+  --ring: 0.76 0.16 65;
+  --chart-1: 0.76 0.16 65;
+  --chart-2: 0.68 0.13 85;
+  --chart-3: 0.55 0.12 45;
+  --chart-4: 0.42 0.14 28;
+  --chart-5: 0.78 0.1 55;
+  --sidebar: 0.16 0.02 30;
+  --sidebar-foreground: 0.85 0.012 70;
+  --sidebar-primary: 0.76 0.16 65;
+  --sidebar-primary-foreground: 0.14 0.018 30;
+  --sidebar-accent: 0.24 0.03 35;
+  --sidebar-accent-foreground: 0.76 0.16 65;
+  --sidebar-border: 0.3 0.025 35;
+  --sidebar-ring: 0.76 0.16 65;
+  --font-sans: "General Sans", "Noto Sans Devanagari", system-ui, sans-serif;
+  --font-serif: "Fraunces", "Noto Serif Devanagari", Georgia, serif;
+  --font-mono: "Geist Mono", monospace;
+  --font-display: "Fraunces", "Noto Serif Devanagari", Georgia, serif;
+  --radius: 0.625rem;
+  --shadow-x: 0px;
+  --shadow-y: 4px;
+  --landing: 0.11 0.02 30;
+  --shadow-blur: 20px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0.2;
+  --shadow-color: 35 0.04 35;
+  --shadow-2xs: 0px 4px 20px 0px oklch(0.2 0.04 35 / 0.1);
+  --shadow-xs: 0px 4px 20px 0px oklch(0.2 0.04 35 / 0.1);
+  --shadow-sm: 0px 4px 20px 0px oklch(0.2 0.04 35 / 0.2), 0px 1px 2px -1px
+    oklch(0.2 0.04 35 / 0.2);
+  --shadow: 0px 4px 20px 0px oklch(0.2 0.04 35 / 0.2), 0px 1px 2px -1px
+    oklch(0.2 0.04 35 / 0.2);
+  --shadow-md: 0px 4px 20px 0px oklch(0.2 0.04 35 / 0.2), 0px 2px 4px -1px
+    oklch(0.2 0.04 35 / 0.2);
+  --shadow-lg: 0px 4px 20px 0px oklch(0.2 0.04 35 / 0.2), 0px 4px 6px -1px
+    oklch(0.2 0.04 35 / 0.2);
+  --shadow-xl: 0px 4px 20px 0px oklch(0.2 0.04 35 / 0.2), 0px 8px 10px -1px
+    oklch(0.2 0.04 35 / 0.2);
+  --shadow-2xl: 0px 4px 20px 0px oklch(0.2 0.04 35 / 0.5);
+  --gradient-primary: linear-gradient(
+    135deg,
+    oklch(0.76 0.16 65) 0%,
+    oklch(0.68 0.13 85) 100%
+  );
+  --gradient-subtle: linear-gradient(
+    180deg,
+    oklch(0.14 0.018 30) 0%,
+    oklch(0.18 0.022 30) 100%
+  );
+  --gradient-flame: linear-gradient(
+    135deg,
+    oklch(0.76 0.16 65) 0%,
+    oklch(0.55 0.12 45) 100%
+  );
+}
+
+body {
+  letter-spacing: var(--tracking-normal);
+}
+
+@layer utilities {
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+  .bg-gradient-subtle {
+    background-image: var(--gradient-subtle);
+  }
+  .bg-gradient-flame {
+    background-image: var(--gradient-flame);
+  }
+  .text-gradient-flame {
+    background-image: var(--gradient-flame);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .text-gradient-primary {
+    background-image: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  .shadow-sacred {
+    box-shadow: 0px 2px 12px 0px oklch(0.35 0.04 35 / 0.06), 0px 0px 0px 1px
+      oklch(0.74 0.16 65 / 0.15);
+  }
+}

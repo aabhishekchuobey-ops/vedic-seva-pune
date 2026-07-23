@@ -1,0 +1,261 @@
+type _ImmutableObjectStorageRefillResult = 
+ record {
+   success: opt bool;
+   topped_up_amount: opt nat;
+ };
+type _ImmutableObjectStorageRefillInformation = record {
+                                                  proposed_top_up_amount:
+                                                   opt nat;};
+type _ImmutableObjectStorageCreateCertificateResult = 
+ record {
+   blob_hash: text;
+   method: text;
+ };
+type Value = 
+ variant {
+   "bool": bool;
+   float: float64;
+   "int": int;
+   "nat": nat;
+   "null";
+   "text": text;
+ };
+type UserRole = 
+ variant {
+   admin;
+   guest;
+   user;
+ };
+type Timestamp = nat;
+type SocialLink = 
+ record {
+   name: text;
+   url: text;
+ };
+type SiteConfig = 
+ record {
+   contactPhone: text;
+   panditName: BilingualText;
+   sankalp: BilingualText;
+   socialLinks: vec SocialLink;
+   tagline: BilingualText;
+   upiNote: opt text;
+   upiPayeeName: opt text;
+   upiVPA: opt text;
+ };
+type ServiceCategory = 
+ variant {
+   grahaDoshShanti;
+   jeevanSamskar;
+   jyotishServices;
+   vedicPujaHavan;
+ };
+type ServiceArea = 
+ record {
+   id: nat;
+   name: text;
+ };
+type Service = 
+ record {
+   category: ServiceCategory;
+   description: BilingualText;
+   displayOrder: nat;
+   id: nat;
+   name: BilingualText;
+ };
+type Review = 
+ record {
+   createdAt: Timestamp;
+   id: nat;
+   rating: nat;
+   reviewerName: text;
+   testimonial: BilingualText;
+ };
+type Result__1 = 
+ variant {
+   err: Error;
+   ok;
+ };
+type Result = 
+ record {
+   hasMore: bool;
+   rows: vec vec Cell;
+ };
+type PaymentStatus = 
+ variant {
+   failed;
+   notApplicable;
+   pendingVerification;
+   verified;
+ };
+type Package = 
+ record {
+   description: BilingualText;
+   displayOrder: nat;
+   id: nat;
+   includedItems: vec BilingualText;
+   name: BilingualText;
+   priceMaxRupees: nat;
+   priceMinRupees: nat;
+ };
+type LanguagePreference = 
+ variant {
+   bilingual;
+   english;
+   hindi;
+ };
+type GalleryItem = 
+ record {
+   category: text;
+   createdAt: Timestamp;
+   id: nat;
+   image: ExternalBlob;
+   title: BilingualText;
+ };
+type FAQ = 
+ record {
+   answer: BilingualText;
+   category: text;
+   displayOrder: nat;
+   id: nat;
+   question: BilingualText;
+ };
+type ExternalBlob = blob;
+type Error = 
+ variant {
+   AmbiguousAttribute: record {
+                         field: text;
+                         sources: vec text;
+                       };
+   FrontendOriginMismatch: record {
+                             expected: vec text;
+                             got: text;
+                           };
+   FrontendOriginsNotConfigured;
+   MalformedCandid;
+   MissingField: text;
+   MixedSsoSources: record {
+                      otherKeys: vec text;
+                      ssoKeys: vec text;
+                    };
+   NoAttributes;
+   Stale: record {ageNs: nat;};
+   UnknownNonce;
+   UntrustedSsoSource: record {domain: text;};
+ };
+type ContactSubmission = 
+ record {
+   createdAt: Timestamp;
+   id: nat;
+   message: text;
+   name: text;
+   phone: text;
+ };
+type Cell = 
+ record {
+   name: text;
+   value: Value;
+ };
+type BookingCategory = 
+ variant {
+   booking;
+   donation;
+ };
+type Booking = 
+ record {
+   address: text;
+   advanceAmount: opt nat;
+   bookingCategory: opt BookingCategory;
+   createdAt: Timestamp;
+   donorMessage: opt BilingualText;
+   email: opt text;
+   id: nat;
+   languagePreference: LanguagePreference;
+   name: text;
+   paymentReferenceId: opt text;
+   paymentStatus: opt PaymentStatus;
+   phone: text;
+   preferredDate: text;
+   preferredTime: text;
+   serviceType: text;
+   specialNotes: text;
+   upiVPA: opt text;
+ };
+type BlogPost = 
+ record {
+   content: BilingualText;
+   createdAt: Timestamp;
+   excerpt: BilingualText;
+   id: nat;
+   image: opt ExternalBlob;
+   published: bool;
+   slug: text;
+   title: BilingualText;
+ };
+type BilingualText = 
+ record {
+   en: text;
+   hi: text;
+ };
+service : {
+  __accessControlState: () -> (reserved) query;
+  __blogPosts: () -> (reserved) query;
+  __bookings: () -> (reserved) query;
+  __contactSubmissions: () -> (reserved) query;
+  __faqs: () -> (reserved) query;
+  __gallery: () -> (reserved) query;
+  __idCounters: () -> (reserved) query;
+  __packages: () -> (reserved) query;
+  __reviews: () -> (reserved) query;
+  __serviceAreas: () -> (reserved) query;
+  __services: () -> (reserved) query;
+  __siteConfig: () -> (reserved) query;
+  _immutableObjectStorageBlobsAreLive: (hashes: vec blob) -> (vec bool) query;
+  _immutableObjectStorageBlobsToDelete: () -> (vec blob) query;
+  _immutableObjectStorageConfirmBlobDeletion: (blobs: vec blob) -> ();
+  _immutableObjectStorageCreateCertificate: (blobHash: text) ->
+   (_ImmutableObjectStorageCreateCertificateResult);
+  _immutableObjectStorageRefillCashier: (refillInformation:
+   opt _ImmutableObjectStorageRefillInformation) ->
+   (_ImmutableObjectStorageRefillResult);
+  _immutableObjectStorageUpdateGatewayPrincipals: () -> ();
+  _initialize_access_control: () -> ();
+  _internet_identity_sign_in_finish: () -> (Result__1);
+  _internet_identity_sign_in_start: () -> (blob);
+  assignCallerUserRole: (user: principal, role: UserRole) -> ();
+  createBooking: (name: text, phone: text, email: opt text, serviceType:
+   text, preferredDate: text, preferredTime: text, address: text,
+   languagePreference: LanguagePreference, specialNotes: text, upiVPA:
+   opt text, advanceAmount: opt nat, paymentStatus: opt PaymentStatus,
+   paymentReferenceId: opt text, bookingCategory: opt BookingCategory,
+   donorMessage: opt BilingualText) -> (Booking);
+  createContactSubmission: (name: text, phone: text, message: text) ->
+   (ContactSubmission);
+  createDonation: (donorName: text, donorPhone: text, amount: nat,
+   donorMessage: opt BilingualText, paymentReferenceId: opt text) ->
+   (Booking);
+  createReview: (reviewerName: text, rating: nat, testimonial:
+   BilingualText) -> (Review);
+  execute: (qJson: text) -> (Result) query;
+  getBlogPost: (slug: text) -> (opt BlogPost) query;
+  getBlogPosts: () -> (vec BlogPost) query;
+  getBookings: () -> (vec Booking);
+  getBookingsByPhone: (phone: text) -> (vec Booking) query;
+  getCallerUserRole: () -> (UserRole) query;
+  getContactSubmissions: () -> (vec ContactSubmission);
+  getFAQs: () -> (vec FAQ) query;
+  getGallery: () -> (vec GalleryItem) query;
+  getPackages: () -> (vec Package) query;
+  getReviews: () -> (vec Review) query;
+  getService: (id: nat) -> (opt Service) query;
+  getServiceAreas: () -> (vec ServiceArea) query;
+  getServices: () -> (vec Service) query;
+  getServicesByCategory: (category: ServiceCategory) -> (vec Service) query;
+  getSiteConfig: () -> (opt SiteConfig) query;
+  isCallerAdmin: () -> (bool) query;
+  schema: () -> (text) query;
+  updateBookingPaymentStatus: (bookingId: nat, newStatus: PaymentStatus) ->
+   (opt Booking);
+  updateSiteConfig: (upiVPA: text, upiPayeeName: text, upiNote: text) ->
+   (opt SiteConfig);
+}
